@@ -5,13 +5,24 @@ import {  toast } from 'react-toastify';
 import { ComponentToPrint } from '../Components/ComponentToPrint';
 import { useReactToPrint } from 'react-to-print';
 import { socket } from '../libs/socket'
+import Chip from '@mui/material/Chip';
+import Stack from '@mui/material/Stack';
 
 function Pos() {
     const [products,setproducts]=useState([]);
     const [isloading,setisloading]=useState(false);
     const [cart,setcart]=useState([]);
     const [totalamount,settotalamount]=useState(0);
+    const [pangyen,setpangyen]=useState(false);
+    const [pangping,setpangping]=useState(false);
+    const [cafe,setcafe]=useState(false);
+    const [cake,setcake]=useState(false);
 
+
+    const handleClick = () => {
+        setpangyen(true)
+        console.info('You clicked the Chip.');
+      };
     useEffect(() => {
         // Replace with your Socket.IO server URL
     
@@ -137,6 +148,12 @@ function Pos() {
    
 
     <div className='row'>
+        <Stack direction="row" spacing={2}>
+      <Chip label="ปังเย็น" variant={pangyen?"filled" : "outlined"} onClick={handleClick} />
+      <Chip label="ปังปิ้ง" variant="outlined" onClick={handleClick} />
+      <Chip label="กาแฟ" variant="outlined" onClick={handleClick} />
+      <Chip label="เค้ก" variant="outlined" onClick={handleClick} />
+    </Stack>
         <div className='col-8'>
             {isloading?'Loading':<div className='row'> 
                 {products.map((product,key) => 

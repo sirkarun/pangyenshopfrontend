@@ -8,6 +8,8 @@ import Pos from "./pages/Pos";
 import Order from "./pages/Order";
 import Newproduct from "./pages/newproduct";
 import Navbar from "./Navbar";
+import NewOrdor from "./pages/NewOrdor";
+
 
 
 
@@ -23,6 +25,7 @@ function App() {
       <Route path="/pos" element={<Pos/>} />
       <Route path="/order" element={<Order/>} />
       <Route path="/new" element={<Newproduct/>} />
+      <Route path="/neworder" element={<NewOrdor/>} />
     </Routes>
 
     </div>
